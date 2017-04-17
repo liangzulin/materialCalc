@@ -1,9 +1,5 @@
 #include <iostream>
-#include <fstream>   // For file reading
-#include <string.h>    // For string class
 #include <vector>    // For vector class
-#include <iomanip> // For format control 
-#include <stdio.h>
 
 #include "readstress.h"
 #include "readvolu.h"
@@ -25,20 +21,20 @@ int main(int argc, char** argv) {
 
 	vector<float>* voluList;
 	voluList = readVolufile("D:\\!CPP\\!DATAFILE\\666-element-volu-PRESOL.lis");
-	for(int i=0;i<4;i++){
-		cout<<"volu == "<<voluList->at(i)<<endl;
-	}	
+//	for(int i=0;i<4;i++){
+//		cout<<"volu == "<<voluList->at(i)<<endl;
+//	}	
 
 	vector<float>* eleAvg;
 	eleAvg = readfile("D:\\!CPP\\!DATAFILE\\gauss-element-stress-PRESOL.lis");
-	for(int i=0;i<4;i++){
-		cout<<"stress == "<<eleAvg->at(i)<<endl;
-	}
+//	for(int i=0;i<4;i++){
+//		cout<<"stress == "<<eleAvg->at(i)<<endl;
+//	}
 	
 	
 	
 	// eleAvg, voluList
-	cout<<eleAvg->size()<<"======"<<voluList->size()<<endl;
+	cout<<"eleAvg="<<eleAvg->size()<<", voluList="<<voluList->size()<<endl;
 
 	float force=0.0f;
 	for(int i=0;i<voluList->size();i++){
@@ -51,7 +47,7 @@ int main(int argc, char** argv) {
 	}
 	
 	float result = force / sumVolu;
-	cout<<"result=="<<result<<endl;
+	cout<<"result="<<result<<endl;
 	
 	return 0;
 }

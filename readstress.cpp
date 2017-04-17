@@ -67,11 +67,12 @@ vector<float>* readfile(const char* filename){
 	
 	}
 	input.close();
-	cout<<"eleAvg size=="<<eleAvg->size()<<endl;
+//	cout<<"eleAvg size=="<<eleAvg->size()<<endl;
 	
-	char a[]="-0.72293E-01";
-	float tmp;
-	sscanf(a, "%f", &tmp);//把char写入到浮点类型定义的tmp里面
-	cout<<"paser"<<tmp<<endl;
+//	char a[]="-0.72293E-01";
+//	float tmp;
+//	sscanf(a, "%f", &tmp);
+	//把char写入到浮点类型定义的tmp里面
+//	cout<<"paser"<<tmp<<endl;
 	return eleAvg;
 } 

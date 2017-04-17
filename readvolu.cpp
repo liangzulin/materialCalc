@@ -46,7 +46,7 @@ vector<float>* readVolufile(const char* filename){
 		}
 //		system("pause");
 	}
-	
+	input.close();
 	return voluList;
 	
 }
