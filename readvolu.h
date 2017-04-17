@@ -1,6 +1,8 @@
 #ifndef READVOLU_H
 #define READVOLU_H
-#include <string>    // For string class
+
+#include <vector>
 using namespace std;
+vector<float>* readVolufile(const char* );
 
 #endif
