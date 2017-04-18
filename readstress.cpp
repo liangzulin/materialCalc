@@ -22,6 +22,7 @@ bool isHead(const char* str, string* const  compare){
 
 
 vector<float>* readfile(const char* filename){
+	int lines=0;
 	ifstream input(filename, ios::in);
 	string name;
 	char str[SIZE];
@@ -32,7 +33,7 @@ vector<float>* readfile(const char* filename){
 	string headstr("  ELEMENT=");
 	while (!input.eof()){
 		
-		input.getline(str,SIZE);
+		input.getline(str,SIZE);lines++;
 //		
 		bool isfound = isHead(str, &headstr);
 		if(isfound){
@@ -45,8 +46,8 @@ vector<float>* readfile(const char* filename){
 			//第二行开始
 			int eof=0;
 			float count=0.0f;
-			for(int j=0;j<8;j++){
-				input.getline(str,SIZE);
+			for(int j=0;j<9;j++){
+				input.getline(str,SIZE);lines++;
 				
 				char b[12];
 				string str1(str);
@@ -74,11 +75,18 @@ vector<float>* readfile(const char* filename){
 				
 			}
 //			count=count/8.0;
-//			cout<<"count="<<count<<"; Average="<<count/8.0<<endl;
+			
 //			cout<<eof<<endl;
 //			if(eof!=0){
 //				system("pause");
 //			}
+			if(lines>=316704 && lines<=316760){
+				cout<<"lines "<<lines<<"; count="<<count<<"; Average="<<count/8.0<<endl;
+				system("pause");
+			}else if(lines>=19 && lines<=30){
+				cout<<"lines "<<lines<<"; count="<<count<<"; Average="<<count/8.0<<endl;
+				system("pause");
+			}
 			eleAvg->push_back(count);
 		}
 	
