@@ -10,7 +10,7 @@
 using namespace std;
 
 int main(int argc, char** argv) {
-	runTest();
+//	runTest();
 //	ofstream outpt("output11111.csv");// Out put file name 
 //	for(int j=0;j<voluList.size();j++){
 //		outpt<<setw(8)<<voluList.at(j)<<endl;
