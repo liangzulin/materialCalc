@@ -9,11 +9,8 @@
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 using namespace std;
 
-
-
 int main(int argc, char** argv) {
 	runTest();
-	
 //	ofstream outpt("output11111.csv");// Out put file name 
 //	for(int j=0;j<voluList.size();j++){
 //		outpt<<setw(8)<<voluList.at(j)<<endl;

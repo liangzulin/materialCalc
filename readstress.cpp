@@ -4,8 +4,8 @@
 #include <fstream>   // For file reading
 #include <vector>    // For vector class
 #include <iomanip> // For format control
-#include <string.h> // For strncpy
-
+//#include <string.h> // For strncpy
+#include <string>
 
 #define SIZE 256
 
@@ -43,25 +43,42 @@ vector<float>* readfile(const char* filename){
 			//input.getline(str,SIZE);
 	
 			//第二行开始
+			int eof=0;
 			float count=0.0f;
 			for(int j=0;j<8;j++){
 				input.getline(str,SIZE);
 				
 				char b[12];
-				
+				string str1(str);
+				string str2 = str1.substr(9,12);
 			//	string tmp=string.copy(str,9,9);
-				strncpy(b, str+9, 12);
+//				strncpy(b, str+9, 12);
 //				cout<<b<<endl;
-				
+//				cout<<b<<"____"<<str2<<endl;
+//				
+				//str2读取正确 
 				float tmp;
-				sscanf(b, "%f", &tmp);//把char写入到浮点类型定义的tmp里面
 				
-				count+=tmp; //高斯点应力相加 
-//				cout<<b<<"----"<<tmp<<endl;
+				eof = sscanf(str2.c_str(), "%f", &tmp);//把char写入到浮点类型定义的tmp里面
+				// eof为转换错误判断int数，如果等于1则正常，不等于1说明转换失败。 
+				
+				if(eof!=1){
+//					cout<<"eof="<<eof<<"; str2="<<str2<<endl;
+//					转换失败，则不进行累加 
+				}else{
+					count+=tmp; //单元内所有8个节点的高斯点应力相加
+//					cout<<"eof="<<eof<<"; str2="<<str2<<"____tmp="<<tmp<<"___count="<<count<<endl;
+//					
+				}
+//				system("pause");
+				
 			}
 //			count=count/8.0;
-//			cout<<"Average=="<<count<<endl;
-			
+//			cout<<"count="<<count<<"; Average="<<count/8.0<<endl;
+//			cout<<eof<<endl;
+//			if(eof!=0){
+//				system("pause");
+//			}
 			eleAvg->push_back(count);
 		}
 	
